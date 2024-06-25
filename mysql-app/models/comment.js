@@ -4,7 +4,7 @@ const sequelizeInstance = dbConnect.Sequelize;
 
 class Comment extends Model {}
 
-User.init(
+Comment.init(
   {
     id: {
       type: DataTypes.INTEGER, //what to do if there is a Foreign keys

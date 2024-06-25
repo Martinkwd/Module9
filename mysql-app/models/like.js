@@ -4,7 +4,7 @@ const sequelizeInstance = dbConnect.Sequelize;
 
 class Like extends Model {}
 
-User.init(
+Like.init(
   {
     id: {
       type: DataTypes.INTEGER, //what to do if there is a Foreign keys

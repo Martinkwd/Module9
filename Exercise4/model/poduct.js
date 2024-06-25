@@ -2,12 +2,12 @@ const { DataTypes, Model } = require("sequelize");
 let dbConnect = require("../dbConnect");
 const sequelizeInstance = dbConnect.Sequelize;
 
-class Post extends Model {}
+class Product extends Model {}
 
-Post.init(
+Product.init(
   {
     id: {
-      type: DataTypes.INTEGER, //what to do if there is a Foreign keys
+      type: DataTypes.INTEGER,
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
@@ -18,7 +18,18 @@ Post.init(
       required: true,
     },
 
+    price: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      required: true,
+    },
     description: {
+      type: DataTypes.STRING(3000),
+      allowNull: false,
+      required: true,
+    },
+
+    category: {
       type: DataTypes.STRING,
       allowNull: false,
       required: true,
@@ -31,9 +42,9 @@ Post.init(
   },
   {
     sequelize: sequelizeInstance,
-    modelName: "posts", // use lowercase plural format
+    modelName: "products",
     timestamps: true,
     freezeTableName: true,
   }
 );
-module.exports = Post;
+module.exports = Product;
